@@ -1,0 +1,1 @@
+This is part of the solution for the AJP. This part is responsible for the portal.	
