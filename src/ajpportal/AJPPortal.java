@@ -34,5 +34,8 @@ public class AJPPortal {
      */
     public static void main(String[] args) {
         System.out.println("Test");
+        
+//        Portal p1 = new Portal("Portal01");
+//        new Sender(p1, "Kiril");
     }
 }

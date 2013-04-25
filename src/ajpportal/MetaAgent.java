@@ -32,7 +32,11 @@ class MetaAgent {
         this.agent = agent;
     }
 
-    public void sendMessage(MetaAgent recipient, String msg) {
+    public void messageReceived(String from, String to, String msg, MsgId msgId) {
+        
+        
+        sendReply(msgId, "thanks for the massage");
+        
     }
 
     public MetaAgent get(Portal agent) {
