@@ -31,6 +31,12 @@ class MetaAgent extends BlockingQueue implements Runnable {
     BlockingQueue bq;
 //    LinkedBlockingQueue lbq =  new LinkedBlockingQueue();
 
+    
+    public MetaAgent()
+    {
+        
+        
+    }
     public MetaAgent(MetaAgent name, Portal portal)
     {
         super();
@@ -47,7 +53,7 @@ class MetaAgent extends BlockingQueue implements Runnable {
     }
     
     
-    public static void msgHandler(String msg)
+    public void msgHandler(String msg)
     {
 //        reactive behaviour to messages
         

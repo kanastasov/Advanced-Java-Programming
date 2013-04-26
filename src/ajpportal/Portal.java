@@ -33,69 +33,50 @@ public class Portal extends MetaAgent {
      * routingTable
      */
     
-    HashMap routingTable;
-    
-    Portal portal;
-
-    public void msgHandler(String msg) {
-        routingTable.get(portal.enqueue(msg));
-    }
-
-    public void addAgent(Agent agent, Character scope) {
-        
-        String agentName = agent.getName();
-        
-//        routingTable.set(name, agent);
-         routingTable.put(agentName, agent);
-         
-         
-    }
-
-    
-     /**
-     * associates an agent with this portal
-     *
-     * @param agent
-     */
-    public void addAgent(Agent agent) {
-        addAgent(agent, LOCAL);
-    }
+    static HashMap mapForAgents = new HashMap();
     
     
-    public String sendMessage(String to, String msg)
+    MetaAgent name;
+//    Portal portal;
+    
+    String portalName;
+    
+//    BlockingQueue bq;
+    
+    
+    public Portal()
     {
+     
         
-        return to + msg;
+        
     }
     
-    /**
-     * forward message to named agent
-     *
-     * @param from name of agent to send message
-     * @param to name of agent to recieve message
-     * @param msg the message
-     * @param id the message id
-     * @return
-     */
-    public String sendMessage(String from, String to, String msg, String id) {
-
-        //incomplete
-
-        return "forward message to named agent";
-    }
-    
-  
-    public String sendReply(MsgId msgId, String msgReply)
+     public Portal(String portalName)
     {
+     this.portalName = portalName;
         
         
-        return msgReply;
+    }
+    
+    @Override
+    public  void msgHandler(String msg)
+    {
+//        System.out.println(name + recipient + msg);
+        mapForAgents.get(portal.enqueue(msg));
+//       
     }
     
     
-
-//    public Portal enqueue(String wrap) {
-//
-//        return new Portal();
+    public void addAgent(String name, MetaAgent agent)
+    {
+        mapForAgents.put(name, agent);
+        
+    }
+    
+//    public void addAgent(MetaAgent agent)
+//    {
+//        portal.addAgent(agent);
+//        
 //    }
+
 }
