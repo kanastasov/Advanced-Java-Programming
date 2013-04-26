@@ -6,7 +6,7 @@ import java.net.Socket;
  *
  * @author Anastasov
  */
-public class SocketAgent extends MetaAgent {
+public class SocketAgent  {
 
     MetaAgent metaAgent;
     

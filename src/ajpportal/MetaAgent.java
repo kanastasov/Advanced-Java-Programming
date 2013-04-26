@@ -22,25 +22,57 @@ package ajpportal;
  * <p>Copyright Kiril Anastasov L1087591@live.tees.ac.uk 10-April-2013 </p>
  * <p>Copyright Chris </p> <p>Copyright Sean 13-Dec-2012 </p>
  */
-class MetaAgent {
+class MetaAgent extends BlockingQueue implements Runnable {
 
-    String name;
-    MetaAgent agent;
+    MetaAgent name;
+    Portal portal;
+    
+    Thread thread;
+    BlockingQueue bq;
+//    LinkedBlockingQueue lbq =  new LinkedBlockingQueue();
 
-    public void set(String name, MetaAgent agent) {
+    public MetaAgent(MetaAgent name, Portal portal)
+    {
+        super();
         this.name = name;
-        this.agent = agent;
-    }
-
-    public void messageReceived(String from, String to, String msg, MsgId msgId) {
+        this.portal = portal;
         
+        msgHandler(bq.dequeue().toString());
         
-        sendReply(msgId, "thanks for the massage");
+        thread = new Thread()
+        {
+//            msgHandler(lbq.peek());
+        };
+       
+    }
+    
+    
+    public static void msgHandler(String msg)
+    {
+//        reactive behaviour to messages
         
     }
-
-    public MetaAgent get(Portal agent) {
-
-        return agent;
+    
+    
+    public void sendMessage(String recipient, String msg)
+    {
+     
+        portal.enqueue(wrap(name,recipient,msg));
+        
     }
+    
+    public String wrap(MetaAgent name, String recipient, String msg) {
+        System.out.println(name + recipient + msg);
+        return name + recipient + msg;
+    }
+    
+    @Override
+    public  void run() {
+       //continually extract messages from the agent's queue 
+//        pass them to the agen'ts message handler.
+       
+       
+       
+    }
+        
 }

@@ -28,16 +28,11 @@ import java.util.HashMap;
 public class Portal extends MetaAgent {
     
 
-    private static final Character LOCAL = new Character('L');
-    protected static final Character INTERNAL = new Character('I');
-    public static final Character GLOBAL = new Character('G');
-    
     
     /**
      * routingTable
      */
     
-    //MetaAgent may need to bo modified.
     HashMap routingTable;
     
     Portal portal;
@@ -97,9 +92,7 @@ public class Portal extends MetaAgent {
         return msgReply;
     }
     
-//    public String wrap(String name, MetaAgent portal, String msg) {
-//        return "x";
-//    }
+    
 
 //    public Portal enqueue(String wrap) {
 //
